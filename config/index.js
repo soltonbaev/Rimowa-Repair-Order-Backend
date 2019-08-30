@@ -7,7 +7,7 @@ export default {
   fakeS3Host: s3.fakeS3Host,
   fakeS3Port: s3.fakeS3Port,
   postgres: {
-    database: process.env.DATABASE_URL,
+    use_env_variable: DATABASE_URL,
     // username: process.env.SQL_USER,
     // password: process.env.SQL_PASS || "",
     // host: process.env.SQL_HOST,
