@@ -15,7 +15,10 @@ export default class Item extends Model {
         ownerId: { type: DataTypes.UUID },
         serialNumber: { type: DataTypes.STRING },
         lockCombo: { type: DataTypes.STRING },
-        purchaseOrigin: { type: DataTypes.STRING }
+        model: { type: DataTypes.STRING },
+        needsBy: { type: DataTypes.STRING },
+        warranty: { type: DataTypes.BOOLEAN },
+        reasonForRepair: { type: DataTypes.STRING }
       },
       {
         sequelize,

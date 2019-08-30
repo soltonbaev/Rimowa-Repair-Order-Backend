@@ -52,7 +52,7 @@ export default class Customer extends Model {
   }
   static associate({ Item }) {
     this.hasMany(Item, {
-      as: "user_items",
+      as: "customer_items",
       foreignKey: "ownerId",
       sourceKey: "uid"
     });

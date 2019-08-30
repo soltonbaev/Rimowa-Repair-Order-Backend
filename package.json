@@ -4,7 +4,8 @@
   "description": "REST api for repair orders management system",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon -r esm index.js"
+    "start": "nodemon -r esm index.js",
+    "debug": "nodemon --inspect -r esm index.js"
   },
   "keywords": [],
   "author": "",
