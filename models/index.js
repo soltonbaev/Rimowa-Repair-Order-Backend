@@ -10,9 +10,9 @@ const sequelize = new Sequelize({
   operatorsAliases: Sequelize.Op
 });
 
+RepairOrder.init(sequelize);
 Customer.init(sequelize);
 Item.init(sequelize);
-RepairOrder.init(sequelize);
 
 const { models } = sequelize;
 
