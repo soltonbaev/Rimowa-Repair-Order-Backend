@@ -1,7 +1,7 @@
 import s3 from './s3.config';
 
 export default {
-  port: process.env.API_PORT,
+  port: process.env.PORT,
   awsS3Config: s3.awsS3Config,
   s3bucket: s3.s3bucket,
   fakeS3Host: s3.fakeS3Host,
