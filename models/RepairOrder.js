@@ -70,8 +70,8 @@ export default class RepairOrder extends Model {
           defaultValue: DataTypes.UUIDV4,
           primaryKey: true
         },
-        date: { type: DataTypes.DATE },
-        customerId: { type: DataTypes.UUID },
+        creationDate: { type: DataTypes.DATE },
+        customerId: { type: DataTypes.UUID, foreignKey: true },
         associateName: { type: DataTypes.STRING },
         shippingAddress: { type: DataTypes.STRING },
         shipWhenComplete: { type: DataTypes.BOOLEAN }
@@ -119,10 +119,10 @@ export default class RepairOrder extends Model {
   }
 
   static associate({ Customer }) {
-    this.hasOne(Customer, {
+    this.belongsTo(Customer, {
       as: "customer",
-      foreignKey: "uid",
-      sourceKey: "customerId"
+      foreignKey: "customerId",
+      sourceKey: "uid"
     });
   }
 }

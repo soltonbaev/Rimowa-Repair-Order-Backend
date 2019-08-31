@@ -41,7 +41,7 @@ export default class CreateRepairOrder extends Base {
   async execute({
     data: {
       uid,
-      date,
+      creationDate,
       customerId,
       firstName,
       lastName,
@@ -58,7 +58,7 @@ export default class CreateRepairOrder extends Base {
       "-----------insideCREATE_REAPAIR---------",
       JSON.stringify({
         uid,
-        date,
+        creationDate,
         customerId,
         firstName,
         lastName,
@@ -76,17 +76,6 @@ export default class CreateRepairOrder extends Base {
     }
 
     try {
-      const order = new RepairOrder({
-        uid,
-        date,
-        customerId,
-        associateName,
-        shippingAddress,
-        shipWhenComplete
-      });
-
-      await order.save();
-
       const customer = new Customer({
         uid: customerId,
         firstName,
@@ -97,6 +86,17 @@ export default class CreateRepairOrder extends Base {
       });
 
       await customer.save();
+
+      const order = new RepairOrder({
+        uid,
+        creationDate,
+        customerId,
+        associateName,
+        shippingAddress,
+        shipWhenComplete
+      });
+
+      await order.save();
 
       const itemsArr =
         items.length &&

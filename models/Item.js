@@ -12,7 +12,7 @@ export default class Item extends Model {
           defaultValue: DataTypes.UUIDV4,
           primaryKey: true
         },
-        ownerId: { type: DataTypes.UUID },
+        ownerId: { type: DataTypes.UUID, foreignKey: true },
         serialNumber: { type: DataTypes.STRING },
         lockCombo: { type: DataTypes.STRING },
         model: { type: DataTypes.STRING },
