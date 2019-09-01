@@ -39,6 +39,13 @@ export async function renderPromiseAsJson(req, res, promise) {
     const data = await promise;
 
     data.status = 1;
+
+    if (data.xls) {
+      return res.xls(
+        `Last ${data.count} ${data.count > 1 ? "orders" : "order"}.xlsx`,
+        data.xls
+      );
+    }
     return res.send(data);
   } catch (error) {
     res.status(500).send({

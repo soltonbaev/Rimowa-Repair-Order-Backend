@@ -1,0 +1,11 @@
+export const STATUSES = {
+  NEW: "NEW",
+  IN_PROGRESS: "IN_PROGRESS",
+  DONE: "DONE"
+};
+
+export const ORDER_STATUSES = [
+  STATUSES.NEW,
+  STATUSES.IN_PROGRESS,
+  STATUSES.DONE
+];

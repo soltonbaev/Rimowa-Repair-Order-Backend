@@ -1,4 +1,5 @@
 import express from "express";
+import json2xls from "json2xls";
 
 // use process.env variables to keep private variables,
 require("dotenv").config();
@@ -29,6 +30,7 @@ app.use(helmet());
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(morgan("combined")); // use 'tiny' or 'combined'
+app.use(json2xls.middleware);
 
 // App Routes
 app.use(routes);
