@@ -1,12 +1,14 @@
 import db from "../../models";
 import Base from "../Base";
 import { STATUSES } from "../../constants";
+import mailSender from "../mailer";
 
 const { RepairOrder, Customer, Item } = db.models;
 
 export default class CreateRepairOrder extends Base {
   async execute({
     data: {
+      emailTemplate,
       uid,
       creationDate,
       customerId,
@@ -77,6 +79,14 @@ export default class CreateRepairOrder extends Base {
         );
 
       itemsArr.forEach(async item => await item.save());
+
+      mailSender.sendMail({
+        from: "rimowaclientcare@gmail.com",
+        to: email,
+        subject: `Hello ${firstName} ${lastName}, here is your Rimowa repair ticket confirmation`,
+        html: emailTemplate,
+        attachments: null
+      });
 
       return {
         data: order,
