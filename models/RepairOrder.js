@@ -23,7 +23,8 @@ export default class RepairOrder extends Model {
           type: DataTypes.ENUM({
             values: [...ORDER_STATUSES]
           })
-        }
+        },
+        signature: { type: DataTypes.TEXT }
       },
       {
         sequelize,

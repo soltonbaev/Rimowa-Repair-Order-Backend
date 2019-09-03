@@ -20,7 +20,8 @@ export default class CreateRepairOrder extends Base {
       shippingAddress,
       shipWhenComplete,
       associateName,
-      items
+      items,
+      signature
     }
   }) {
     if (await RepairOrder.findOne({ where: { uid }, paranoid: false })) {
@@ -48,7 +49,8 @@ export default class CreateRepairOrder extends Base {
         associateName,
         shippingAddress,
         shipWhenComplete: shipWhenComplete ? "Yes" : "No",
-        orderStatus: STATUSES.NEW
+        orderStatus: STATUSES.NEW,
+        signature
       });
 
       await order.save();
