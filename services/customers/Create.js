@@ -5,11 +5,11 @@ const { Customer } = db.models;
 
 export default class CreateCustomer extends Base {
   async execute({ data: { firstName, lastName, email, phone, companyName } }) {
-    if (await Customer.findOne({ where: { email }, paranoid: false })) {
-      throw new Error({
-        message: "NOT_UNIQUE"
-      });
-    }
+    //if (await Customer.findOne({ where: { email }, paranoid: false })) {
+    //  throw new Error({
+    //    message: "NOT_UNIQUE"
+    //  });
+    //}
 
     const customer = new Customer({
       firstName,

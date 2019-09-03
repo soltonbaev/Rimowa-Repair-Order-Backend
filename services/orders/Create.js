@@ -24,7 +24,9 @@ export default class CreateRepairOrder extends Base {
     }
   }) {
     if (await RepairOrder.findOne({ where: { uid }, paranoid: false })) {
-      throw new Error("NOT_UNIQUE");
+      return {
+        data: { error: { errors: [{ message: "Order is not unique" }] } }
+      };
     }
 
     try {
@@ -80,13 +82,14 @@ export default class CreateRepairOrder extends Base {
 
       itemsArr.forEach(async item => await item.save());
 
-      mailSender.sendMail({
-        from: "rimowaclientcare@gmail.com",
-        to: email,
-        subject: `Hello ${firstName} ${lastName}, here is your Rimowa repair ticket confirmation`,
-        html: emailTemplate,
-        attachments: null
-      });
+      email &&
+        mailSender.sendMail({
+          from: "rimowaclientcare@gmail.com",
+          to: email,
+          subject: `Hello ${firstName} ${lastName}, here is your Rimowa repair ticket confirmation`,
+          html: emailTemplate,
+          attachments: null
+        });
 
       return {
         data: order,

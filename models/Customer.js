@@ -14,7 +14,7 @@ export default class Customer extends Model {
         },
         firstName: { type: DataTypes.STRING },
         lastName: { type: DataTypes.STRING },
-        email: { type: DataTypes.STRING, unique: true },
+        email: { type: DataTypes.STRING },
         phone: {
           type: DataTypes.STRING
         },
@@ -34,14 +34,7 @@ export default class Customer extends Model {
 
   static attrs(type = "default") {
     const attributes = {
-      default: [
-        "uid",
-        "firstName",
-        "lastName",
-        "email",
-        "phone",
-        "companyName"
-      ]
+      default: ["uid", "firstName", "lastName", "email", "phone", "companyName"]
     };
 
     if (type in attributes) {
