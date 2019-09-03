@@ -47,7 +47,7 @@ export default class CreateRepairOrder extends Base {
         customerId,
         associateName,
         shippingAddress,
-        shipWhenComplete,
+        shipWhenComplete: shipWhenComplete ? "Yes" : "No",
         orderStatus: STATUSES.NEW
       });
 
@@ -73,7 +73,7 @@ export default class CreateRepairOrder extends Base {
               lockCombo,
               model,
               needsBy,
-              warranty,
+              warranty: warranty ? "Yes" : "No",
               reasonForRepair
             });
             return item;

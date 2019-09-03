@@ -18,7 +18,7 @@ export default class RepairOrder extends Model {
         customerId: { type: DataTypes.UUID, foreignKey: true },
         associateName: { type: DataTypes.STRING },
         shippingAddress: { type: DataTypes.STRING },
-        shipWhenComplete: { type: DataTypes.BOOLEAN },
+        shipWhenComplete: { type: DataTypes.STRING },
         orderStatus: {
           type: DataTypes.ENUM({
             values: [...ORDER_STATUSES]

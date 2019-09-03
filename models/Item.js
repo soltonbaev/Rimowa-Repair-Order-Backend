@@ -17,7 +17,7 @@ export default class Item extends Model {
         lockCombo: { type: DataTypes.STRING },
         model: { type: DataTypes.STRING },
         needsBy: { type: DataTypes.STRING },
-        warranty: { type: DataTypes.BOOLEAN },
+        warranty: { type: DataTypes.STRING },
         reasonForRepair: { type: DataTypes.STRING }
       },
       {
