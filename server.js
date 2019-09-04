@@ -15,20 +15,6 @@ const app = express();
 
 const routes = require("./router");
 
-// App Middleware
-// const whitelist = [
-//   "http://localhost:3000",
-//   "https://rimowa-repair-ticket-mgmt.herokuapp.com"
-// ];
-// const corsOptions = {
-//   origin: function(origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1 || !origin) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("Not allowed by CORS"));
-//     }
-//   }
-// };
 app.use(helmet());
 app.use(cors());
 app.use(bodyParser.json());
