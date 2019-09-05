@@ -4,7 +4,7 @@
   "description": "REST api for repair orders management system",
   "main": "server.js",
   "scripts": {
-    "start": "node -r esm index.js",
+    "start": "node --optimize_for_size --max_old_space_size=460 --gc_interval=100 -r esm index.js",
     "debug": "nodemon --inspect -r esm index.js",
     "start:dev": "nodemon -r esm index.js"
   },
