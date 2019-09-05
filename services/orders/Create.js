@@ -85,6 +85,7 @@ export default class CreateRepairOrder extends Base {
       itemsArr.forEach(async item => await item.save());
 
       email &&
+        email !== "" &&
         mailSender.sendMail({
           from: "rimowaclientcare@gmail.com",
           to: email,
