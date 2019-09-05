@@ -23,6 +23,6 @@ for (const modelName in models) {
   }
 }
 
-sequelize.sync({ logging: true, force: true });
+sequelize.sync({ logging: true, force: false });
 
 export default sequelize;
