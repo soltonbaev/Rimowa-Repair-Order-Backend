@@ -7,5 +7,6 @@ router.get("/getCustomers", routes.customers.list);
 router.post("/addOrder", routes.orders.create, req => req.body);
 router.get("/orders", routes.orders.list);
 router.get("/exportNew", routes.orders.exportNew);
+router.delete("/deleteOrder/:uid", routes.orders.deleteOrder);
 
 module.exports = router;
