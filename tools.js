@@ -1,4 +1,5 @@
 import util from "util";
+import moment from "moment";
 
 const inspect = data => util.inspect(data, { showHidden: false, depth: null });
 
@@ -42,7 +43,9 @@ export async function renderPromiseAsJson(req, res, promise) {
 
     if (data.xls) {
       return res.xls(
-        `Last ${data.count} ${data.count > 1 ? "orders" : "order"}.xlsx`,
+        `Last ${data.count} ${
+          data.count > 1 ? "orders" : "order"
+        } (${moment().format("MMM DD YYYY")}).xlsx`,
         data.xls
       );
     }
