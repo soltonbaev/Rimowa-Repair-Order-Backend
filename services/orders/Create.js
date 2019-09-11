@@ -66,7 +66,10 @@ export default class CreateRepairOrder extends Base {
             model,
             needsBy,
             warranty,
-            reasonForRepair
+            reasonForRepair,
+            walkinOrShipped,
+            damagedBy3rdParty,
+            replacementCaseIssued
           }) => {
             const item = new Item({
               uid,
@@ -76,7 +79,12 @@ export default class CreateRepairOrder extends Base {
               model,
               needsBy,
               warranty: warranty ? "Yes" : "No",
-              reasonForRepair
+              reasonForRepair: reasonForRepair.length
+                ? reasonForRepair.split(",").map(str => str.trim())
+                : [],
+              walkinOrShipped,
+              damagedBy3rdParty: damagedBy3rdParty ? "Yes" : "No",
+              replacementCaseIssued: replacementCaseIssued ? "Yes" : "No"
             });
             return item;
           }
