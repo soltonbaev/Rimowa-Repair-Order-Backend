@@ -8,5 +8,10 @@ router.post("/addOrder", routes.orders.create, req => req.body);
 router.get("/orders", routes.orders.list);
 router.get("/exportNew", routes.orders.exportNew);
 router.delete("/deleteOrder/:uid", routes.orders.deleteOrder);
+router.put(
+  "/changeOrderStatus",
+  routes.orders.changeOrderStatus,
+  req => req.body
+);
 
 module.exports = router;
