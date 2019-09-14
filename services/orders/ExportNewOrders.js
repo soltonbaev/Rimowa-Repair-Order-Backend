@@ -1,6 +1,7 @@
 import db from "../../models";
 import Base from "../Base";
 import { STATUSES } from "../../constants";
+import moment from "moment";
 
 const { RepairOrder } = db.models;
 
@@ -42,26 +43,69 @@ export default class ExportNewOrders extends Base {
             model,
             needsBy,
             warranty,
-            reasonForRepair
+            reasonForRepair,
+            walkinOrShipped
           }) =>
             dataForXLSX.push({
-              creationDate,
-              customerId,
-              associateName,
+              creationDate: moment(creationDate).format("MMM DD YYYY"),
+              b: "",
+              c: "",
+              walkinOrShipped,
+              name: `${firstName} ${lastName}`,
               shippingAddress,
-              shipWhenComplete,
-              orderStatus,
-              firstName,
-              lastName,
-              email,
+              g: "",
               phone,
-              companyName,
+              email,
+              j: "",
               serialNumber,
-              lockCombo,
-              model,
-              needsBy,
               warranty,
-              reasonForRepair
+              m: "",
+              n: "",
+              o: "",
+              p: "",
+              q: "",
+              r: "",
+              s: "",
+              t: "",
+              u: "",
+              v: "",
+              shipWhenComplete,
+              x: "",
+              y: "",
+              z: "",
+              aa: "",
+              ab: "",
+              reasonForRepair,
+              ad: "",
+              ae: "",
+              af: "",
+              ag: "",
+              ah: "",
+              ai: "",
+              aj: "",
+              ak: "",
+              al: "",
+              am: "",
+              an: "",
+              ao: "",
+              ap: "",
+              aq: "",
+              ar: "",
+              as: "",
+              at: "",
+              au: "",
+              av: "",
+              aw: "",
+              ax: "",
+              ay: "",
+              az: "",
+              model,
+              lockCombo,
+              needsBy: moment(needsBy).format("MMM DD YYYY")
+              // associateName,
+              // orderStatus,
+              // companyName,
+              // customerId
             })
         )
     );
